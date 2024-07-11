@@ -16,7 +16,7 @@
   - name: set_fact when log in key
     ansible.builtin.set_fact:
       tag: logging
-    loop: "{{ lookup('ansible.builtin.dict', config, config) }}"
+    loop: "{{ lookup('ansible.builtin.dict2items', config) }}"
     when: "'logging' in item.key"
 
   - name: set_fact when ntp in key
