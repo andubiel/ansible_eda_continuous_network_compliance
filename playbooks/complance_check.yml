@@ -5,8 +5,7 @@
   tasks:
   - name: Print
     debug:
-     var: 
-      - config 
+     var: config 
 
   - name: Set tag for Compliance Check
     set_fact: 
