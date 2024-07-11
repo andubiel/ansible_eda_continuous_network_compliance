@@ -1,0 +1,9 @@
+---
+- name: Triage Down Interfaces 
+  hosts: "{{ rtr }}"
+  gather_facts: False
+  tasks:
+  - name: Print
+    debug:
+     msg: 
+      - config: "{{ event.body.name}}"
