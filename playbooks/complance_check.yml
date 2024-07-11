@@ -27,7 +27,7 @@
 
   - name: Run Compliance Roles
     ansible.builtin.include_role:
-        name: "../roles/{{ tag | default (omit) }}"
+        name: "../roles/{{ tag | default (omit, True) }}"
 
   handlers:
     - name: NTP compliance violation
