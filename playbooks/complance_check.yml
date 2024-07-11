@@ -12,7 +12,7 @@
      tags: snmp
     #when: "'snmp_server' in ['config']" 
     #when: config['snmp_server/Cisco_IOS_XE_snmp:community_config/name'] is defined
-    when: config | match("snmp_server")
+    when: "config is match('^snmp.*$')"
 
   - name: Print
     debug:
