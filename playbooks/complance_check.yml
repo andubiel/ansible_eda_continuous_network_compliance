@@ -23,7 +23,7 @@
     ansible.builtin.set_fact:
       tag: logging
     loop: "{{ lookup('ansible.builtin.dict', config) }}"
-    when: "'log' in item.key"
+    when: "'logging' in item.key"
 
   - name: Print
     debug:
