@@ -7,17 +7,19 @@
     debug:
      msg: "{{ config }}" 
     
-
-    #when: config['snmp_server/Cisco_IOS_XE_snmp:community_config/name'] is defined
-  
-
-  - name: set_fact when alice in key
+  - name: set_fact when snmp in key
     ansible.builtin.set_fact:
-      tags: snmp
+      tag: snmp
     loop: "{{ lookup('ansible.builtin.dict', config) }}"
     when: "'snmp' in item.key"
+
+  - name: set_fact when log in key
+    ansible.builtin.set_fact:
+      tag: logging
+    loop: "{{ lookup('ansible.builtin.dict', config) }}"
+    when: "'log' in item.key"
 
   - name: Print
     debug:
      msg: 
-      - "{{ tags }}"
+      - "{{ tag }}"
