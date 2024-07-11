@@ -1,5 +1,5 @@
 ---
-- name: Examine Incoming Configd For Compliance 
+- name: Examine Configuration Changes For Compliance 
   hosts: "{{ _group }}"
   gather_facts: False
   tasks:
