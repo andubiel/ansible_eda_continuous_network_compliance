@@ -11,17 +11,17 @@
     - name: When Config Drifts Run Playbook
       condition: events.name == "Cisco-IOS-XE-native:native"
       action:
-        run_playbook:
-          name: controller2.yml
+        debug:
+          msg: Config Changed
 
-    - name: Retrieve Data and Launch Job-template
-      condition: events.body.fields.new_state == "interface-notif-state-down" and events.body.fields.if_name in vars.protected
-      action:
-        run_job_template:
-          name: "EDA-Fix-Ports"
-          organization: "Default"
-          job_args:
-            extra_vars:
-              interface: "{{ event.body.fields.if_name }}"
-              rtr: "{{ event.body.fields.host_name }}"
+   # - name: Retrieve Data and Launch Job-template
+   #   condition: events.body.fields.new_state == "interface-notif-state-down" and events.body.fields.if_name in vars.protected
+   #   action:
+   #     run_job_template:
+   #       name: "EDA-Fix-Ports"
+   #       organization: "Default"
+   #       job_args:
+   #         extra_vars:
+   #           interface: "{{ event.body.fields.if_name }}"
+   #           rtr: "{{ event.body.fields.host_name }}"
 
