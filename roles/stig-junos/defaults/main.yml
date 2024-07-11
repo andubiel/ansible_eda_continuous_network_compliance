@@ -1,0 +1,279 @@
+# R-80813 JUSX-AG-000120
+junosSTIG_stigrule_80813_Manage: False
+junosSTIG_stigrule_80813_set_security_screen_ids_option_statistics_Lines:
+  - set security screen ids-option untrust-screen icmp ip-sweep threshold 1000
+  - set security screen ids-option untrust-screen tcp port-scan threshold 1000
+  - set security screen ids-option untrust-screen tcp syn-flood alarm-threshold 1000
+  - set security screen ids-option untrust-screen tcp syn-flood attack-threshold 1100
+  - set security screen ids-option untrust-screen tcp syn-flood source-threshold 100
+  - set security screen ids-option untrust-screen tcp syn-flood destination-threshold 2048
+  - set security screen ids-option untrust-screen tcp syn-flood timeout 20
+  - set security screen ids-option untrust-screen udp flood threshold 5000
+  - set security screen ids-option untrust-screen udp udp-sweep threshold 1000
+junosSTIG_stigrule_80813_set_security_zone_security_zone_Lines:
+  - set security zones security-zone untrust screen untrust-screen
+# R-80817 JUSX-AG-000122
+junosSTIG_stigrule_80817_Manage: True
+junosSTIG_stigrule_80817_set_security_screen_ids_option_signature_Lines:
+  - set security screen ids-option untrust-screen icmp ping-death
+  - set security screen ids-option untrust-screen ip bad-option
+  - set security screen ids-option untrust-screen ip record-route-option
+  - set security screen ids-option untrust-screen ip timestamp-option
+  - set security screen ids-option untrust-screen ip security-option
+  - set security screen ids-option untrust-screen ip stream-option
+  - set security screen ids-option untrust-screen ip spoofing
+  - set security screen ids-option untrust-screen ip source-route-option
+  - set security screen ids-option untrust-screen ip unknown-protocol
+  - set security screen ids-option untrust-screen ip tear-drop
+  - set security screen ids-option untrust-screen ip ipv6-extension-header hop-by-hop-header jumbo-payload-option
+  - set security screen ids-option untrust-screen ip ipv6-extension-header hop-by-hop-header router-alert-option
+  - set security screen ids-option untrust-screen ip ipv6-extension-header hop-by-hop-header quick-start-option
+  - set security screen ids-option untrust-screen ip ipv6-extension-header routing-header
+  - set security screen ids-option untrust-screen ip ipv6-extension-header fragment-header
+  - set security screen ids-option untrust-screen ip ipv6-extension-header no-next-header
+  - set security screen ids-option untrust-screen ip ipv6-extension-header shim6-header
+  - set security screen ids-option untrust-screen ip ipv6-extension-header mobility-header
+  - set security screen ids-option untrust-screen ip ipv6-malformed-header
+  - set security screen ids-option untrust-screen tcp syn-fin
+  - set security screen ids-option untrust-screen tcp fin-no-ack
+  - set security screen ids-option untrust-screen tcp tcp-no-flag
+  - set security screen ids-option untrust-screen tcp syn-frag
+  - set security screen ids-option untrust-screen tcp land
+# R-80939 JUSX-DM-000097
+# Set shared secret. Optionally change radius-server to tacplus-server
+junosSTIG_stigrule_80939_Manage: False
+junosSTIG_stigrule_80939_set_system_authentication_server_Lines:
+  - set system radius-server port 1812 secret <shared secret>
+# R-80969 JUSX-DM-000059
+junosSTIG_stigrule_80969_Manage: True
+junosSTIG_stigrule_80969_set_system_syslog_user_Lines:
+  - set system syslog user * any emergency
+  - set system syslog user * daemon critical
+# R-80973 JUSX-DM-000065
+junosSTIG_stigrule_80973_Manage: True
+junosSTIG_stigrule_80973_set_system_time_zone_UTC_Lines:
+  - set system time-zone UTC
+# R-80979 JUSX-DM-000095
+# A partial of 80939
+# duplicate of 80939
+# R-80981 JUSX-DM-000096
+# A partial of 80939
+# duplicate of 80939
+# R-80985 JUSX-DM-000106
+# A partial of 80969
+# duplicate of 80969
+# R-80993 JUSX-DM-000112
+junosSTIG_stigrule_80993_Manage: True
+junosSTIG_stigrule_80993_set_system_services_ssh_root_login_deny_Lines:
+  - set system services ssh root-login deny
+# R-80999 JUSX-DM-000114
+junosSTIG_stigrule_80999_Manage: True
+junosSTIG_stigrule_80999_set_system_services_ssh_no_tcp_forwarding_Lines:
+  - set system services ssh no-tcp-forwarding
+# R-81003 JUSX-DM-000124
+# A partial of 81019
+# duplicate of 81019
+# R-81005 JUSX-DM-000128
+# Note: This setting only enforces the minimum character password length for newly created passwords
+junosSTIG_stigrule_81005_Manage: True
+junosSTIG_stigrule_81005_set_system_login_password_minimum_length_15_Lines:
+  - set system login password minimum-length 15
+# R-81007 JUSX-DM-000129
+junosSTIG_stigrule_81007_Manage: True
+junosSTIG_stigrule_81007_set_system_login_password_change_type_character_sets_Lines:
+  - set system login password change-type character-sets
+# R-81009 JUSX-DM-000130
+junosSTIG_stigrule_81009_Manage: True
+junosSTIG_stigrule_81009_set_system_login_password_minimum_upper_cases_1_Lines:
+  - set system login password minimum-upper-cases 1
+# R-81011 JUSX-DM-000131
+junosSTIG_stigrule_81011_Manage: True
+junosSTIG_stigrule_81011_set_system_login_password_minimum_lower_cases_1_Lines:
+  - set system login password minimum-lower-cases 1
+# R-81013 JUSX-DM-000132
+junosSTIG_stigrule_81013_Manage: True
+junosSTIG_stigrule_81013_set_system_login_password_minimum_numerics_1_Lines:
+  - set system login password minimum-numerics 1
+# R-81015 JUSX-DM-000133
+junosSTIG_stigrule_81015_Manage: True
+junosSTIG_stigrule_81015_set_system_login_password_minimum_punctuations_1_Lines:
+  - set system login password minimum-punctuations 1
+# R-81017 JUSX-DM-000136
+junosSTIG_stigrule_81017_Manage: True
+junosSTIG_stigrule_81017_set_system_login_password_format_sha1_Lines:
+  - set system login password format sha1
+# R-81019 JUSX-DM-000147
+junosSTIG_stigrule_81019_Manage: True
+junosSTIG_stigrule_81019_set_system_services_ssh_macs_Lines:
+  - set system services ssh protocol-version v2
+  - set system services ssh macs hmac-sha2-512
+  - set system services ssh macs hmac-sha2-256
+  - set system services ssh macs hmac-sha1
+  - set system services ssh macs hmac-sha1-96
+# R-81021 JUSX-DM-000150
+# Sets ssh protocol-version v2 in 81019
+junosSTIG_stigrule_81021_Manage: True
+junosSTIG_stigrule_81021_set_system_services_ssh_ciphers_Lines:
+  - set system services ssh ciphers aes256-ctr
+  - set system services ssh ciphers aes256-cbc
+  - set system services ssh ciphers aes192-ctr
+  - set system services ssh ciphers aes192-cbc
+  - set system services ssh ciphers aes128-ctr
+  - set system services ssh ciphers aes128-cbc
+  - set system services ssh key-exchange dh-group14-sha1
+  - set system services ssh key-exchange group-exchange-sha2
+  - set system services ssh key-exchange ecdh-sha2-nistp256
+  - set system services ssh key-exchange ecdh-sha2-nistp384
+  - set system services ssh key-exchange ecdh-sha2-nistp521
+# R-81025 JUSX-DM-000153
+junosSTIG_stigrule_81025_Manage: True
+junosSTIG_stigrule_81025_set_system_services_ssh_client_alive_Lines:
+  - set system services ssh client-alive-count-max 3
+  - set system services ssh client-alive-interval 30
+# R-81027 JUSX-DM-000156
+junosSTIG_stigrule_81027_Manage: False
+junosSTIG_stigrule_81027_set_system_login_class_Lines:
+  - "set system login class {{ item.name }} idle-timeout 10"
+junosSTIG_stigrule_81027_set_system_login_idle_timeout_Lines:
+  - set system login idle-timeout 10
+# R-81029 JUSX-DM-000157
+# A partial of 81025
+# duplicate of 81025
+# R-81031 JUSX-DM-000162
+junosSTIG_stigrule_81031_Manage: True
+junosSTIG_stigrule_81031_set_system_internet_options_Lines:
+  - set system no-redirects
+  - set system no-ping-record-route
+  - set system no-ping-time-stamp
+  - set system internet-options icmpv4-rate-limit packet-rate 50
+  - set system internet-options icmpv6-rate-limit packet-rate 50
+  - set system internet-options no-ipip-path-mtu-discovery
+  - set system internet-options no-source-quench
+  - set system internet-options tcp-drop-synfin-set
+  - set system internet-options no-ipv6-path-mtu-discovery
+  - set system internet-options no-tcp-reset drop-all-tcp
+# R-81033 JUSX-DM-000163
+junosSTIG_stigrule_81033_Manage: True
+junosSTIG_stigrule_81033_set_system_services_ssh_rate_limit_4_Lines:
+  - set system services ssh rate-limit 4
+# R-81039 JUSX-DM-000001
+# Set to organization-defined values
+junosSTIG_stigrule_81039_Manage: True
+junosSTIG_stigrule_81039_set_system_services_ssh_connection_limit_Lines:
+  - set system services ssh connection-limit 10
+  - set system services ssh max-sessions-per-connection 1
+# R-81041 JUSX-DM-000029
+# A partial of 81049
+# duplicate of 81049
+# R-81043 JUSX-DM-000030
+junosSTIG_stigrule_81043_Manage: True
+junosSTIG_stigrule_81043_set_system_login_retry_options_tries_before_disconnect_3_Lines:
+  - set system login retry-options tries-before-disconnect 3
+# R-81045 JUSX-DM-000032
+# Disabled to prevent a bug in Ansible that prevents compliance extraction.
+junosSTIG_stigrule_81045_Manage: False
+junosSTIG_stigrule_81045_login_Text: 'You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+
+By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+
+-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+
+-At any time, the USG may inspect and seize data stored on this IS.
+
+-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+
+-This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
+
+-Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
+
+
+
+'
+# R-81047 JUSX-DM-000039
+junosSTIG_stigrule_81047_Manage: False
+junosSTIG_stigrule_81047_set_system_login_class_audit_admin_permissions_Lines:
+  - set system login class audit-admin permissions [ security trace maintenance ]
+  - set system login class audit-admin allow-commands "^clear (log|security log)"
+  - set system login class audit-admin deny-commands "^clear (security alarms|system login lockout)|^file (copy|delete|rename)|^request (security|system set-encryption-key)|^rollback|^set date|^show security (alarms|dynamic-policies|match-policies|policies)|^start shell"
+  - set system login class audit-admin security-role audit-administrator
+  - set system login user audit-officer class audit-admin
+junosSTIG_stigrule_81047_set_system_login_class_crypto_admin_permissions_Lines:
+  - set system login class crypto-admin permissions [ admin-control configure maintenance security-control system-control trace ]
+  - set system login class crypto-admin allow-commands "^request system set-encryption-key"
+  - set system login class crypto-admin deny-commands "^clear (log|security alarms|security log|system login lockout)|^file (copy|delete|rename)|^rollback|^set date|^show security (alarms|dynamic-policies|match-policies|policies)|^start shell"
+  - set system login class crypto-admin allow-configuration-regexps [ "security (ike|ipsec) (policy|proposal)" "security ipsec ^vpn$ .* manual (authentication|encryption|protocol|spi)" "system fips self-test after-key-generation" ]
+  - set system login class crypto-admin security-role crypto-administrator
+junosSTIG_stigrule_81047_set_system_login_class_security_admin_permissions_Lines:
+  - set system login class security-admin permissions all
+  - set system login class security-admin deny-commands "^clear (log|security log)|^(clear|show) security alarms alarm-type idp|^request (security|system set-encryption-key)|^rollback|^start shell"
+  - set system login class security-admin deny-configuration-regexps [ "security alarms potential-violation idp" "security (ike|ipsec) (policy|proposal)" "security ipsec ^vpn$ .* manual (authentication|encryption|protocol|spi)" "security log cache" "security log exclude .* event-id IDP_.*" "system fips self-test after-key- generation" ]
+  - set system login class security-admin security-role security-administrator
+junosSTIG_stigrule_81047_set_system_login_class_ids_admin_permissions_Lines:
+  - set system login class ids-admin permissions [ configure maintenance security-control trace ]
+  - set system login class ids-admin allow-configuration-regexps [ "security alarms potential-violation idp" "security log exclude .* event-id IDP_.*" ]
+  - set system login class ids-admin deny-commands "^clear log|^(clear|show) security alarms (alarm-id|all|newer-than|older- than|process|severity)|^(clear|show) security alarms alarm-type (authentication|cryptographic-self-test|decryption-failures|encryption-failures| ike-phase1-failures|ike-phase2-failures|key-generation-self-test| non-cryptographic-self-test|policy|replay-attacks)|^file (copy|delete|rename)|^request (security|system set-encryption-key)|^rollback|^set date|^show security (dynamic-policies|match-policies|policies)|^start shell"
+  - set system login class ids-admin deny-configuration-regexps [ "security alarms potential-violation (authentication|cryptographic-self-test|decryption-failures|encryption-failures|ike-phase1-failures|ike-phase2-failures|key-generation-self-test|non-cryptographic-self-test|policy|replay-attacks)" ]
+  - set system login class ids-admin security-role ids-administrator
+junosSTIG_stigrule_81047_set_system_login_user_crypto_officer_class_crypto_admin_Lines:
+  - set system login user crypto-officer class crypto-admin
+  - set system login user security-officer class security-admin
+  - set system login user ids-officer class ids-admin
+# R-81049 JUSX-DM-000040
+# Please fill in the placeholder values for: <IP-syslog-server>, <MGT-IP-Address>, and <host-name>
+junosSTIG_stigrule_81049_Manage: False
+junosSTIG_stigrule_81049_generate_log_records_Lines:
+  - set system syslog user * any emergency
+  - set system syslog host <IP-syslog-server> any any
+  - set system syslog host <IP-syslog-server> source-address <MGT-IP-Address>
+  - set system syslog host <IP-syslog-server> log-prefix <host-name>
+  - set system syslog file messages any info
+  - set system syslog file messages authorization none
+  - set system syslog file messages interactive-commands none 
+  - set system syslog file messages daemon none 
+  - set system syslog file User-Auth authorization any
+  - set system syslog file interactive-commands interactive-commands any
+  - set system syslog file processes daemon any
+  - set system syslog file account-actions change-log any
+  - set system syslog file account-actions match "system login user"
+  - set system syslog console any any
+# R-81051 JUSX-DM-000041
+# A partial of 81049
+# duplicate of 81049
+# R-81053 JUSX-DM-000042
+# A partial of 81049
+# duplicate of 81049
+# R-81055 JUSX-DM-000043
+# A partial of 81049
+# duplicate of 81049
+# R-81057 JUSX-DM-000044
+# A partial of 81049
+# duplicate of 81049
+# R-81059 JUSX-DM-000046
+# A partial of 81049
+# duplicate of 81049
+# R-81061 JUSX-DM-000055
+# A partial of 81049
+# duplicate of 81049
+# R-81063 JUSX-DM-000060
+# A partial of 81049
+# duplicate of 81049
+# R-81085 JUSX-DM-000087
+# Set to organization-defined values
+junosSTIG_stigrule_81085_Manage: True
+junosSTIG_stigrule_81085_set_system_max_configuration_rollbacks_Lines:
+  - set system max-configuration-rollbacks 5
+# R-81091 JUSX-DM-000154
+# Set to organization-defined values
+junosSTIG_stigrule_81091_Manage: True
+junosSTIG_stigrule_81091_system_ports_console_set_log_out_on_disconnect_Lines:
+  - set system ports console log-out-on-disconnect
+# R-81095 JUSX-DM-000167
+junosSTIG_stigrule_81095_Manage: True
+junosSTIG_stigrule_81095_delete_system_services_web_management_Lines:
+  - delete system services web-management
+# R-81169 JUSX-VN-000031
+# Replace <name> before enabling.
+junosSTIG_stigrule_81169_Manage: False
+junosSTIG_stigrule_81169_delete_security_vpn__name__ike_no_anti_replay_Lines:
+  - delete security vpn <name> ike no-anti-replay
+junosSTIG_save_configuration_Manage: False

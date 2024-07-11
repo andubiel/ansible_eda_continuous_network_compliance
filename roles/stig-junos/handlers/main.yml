@@ -1,0 +1,6 @@
+- name: save configuration
+  junos_config:
+    confirm_commit: yes
+  when: 
+  - save == 'yes'
+  

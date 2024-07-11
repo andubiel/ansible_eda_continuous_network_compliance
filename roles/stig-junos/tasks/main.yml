@@ -1,0 +1,268 @@
+# R-80813 JUSX-AG-000120
+- name : stigrule_80813_set_security_screen_ids_option_statistics
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_80813_set_security_screen_ids_option_statistics_Lines }}"
+  when:
+    - junosSTIG_stigrule_80813_Manage
+# R-80813 JUSX-AG-000120
+- name : stigrule_80813_set_security_zone_security_zone
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_80813_set_security_zone_security_zone_Lines }}"
+  when:
+    - junosSTIG_stigrule_80813_Manage
+# R-80817 JUSX-AG-000122
+- name : stigrule_80817_set_security_screen_ids_option_signature
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_80817_set_security_screen_ids_option_signature_Lines }}"
+  when:
+    - junosSTIG_stigrule_80817_Manage
+# R-80939 JUSX-DM-000097
+# Set shared secret. Optionally change radius-server to tacplus-server
+- name : stigrule_80939_set_system_authentication_server
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_80939_set_system_authentication_server_Lines }}"
+  when:
+    - junosSTIG_stigrule_80939_Manage
+# R-80969 JUSX-DM-000059
+- name : stigrule_80969_set_system_syslog_user
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_80969_set_system_syslog_user_Lines }}"
+  when:
+    - junosSTIG_stigrule_80969_Manage
+# R-80973 JUSX-DM-000065
+- name : stigrule_80973_set_system_time_zone_UTC
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_80973_set_system_time_zone_UTC_Lines }}"
+  when:
+    - junosSTIG_stigrule_80973_Manage
+# R-80993 JUSX-DM-000112
+- name : stigrule_80993_set_system_services_ssh_root_login_deny
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_80993_set_system_services_ssh_root_login_deny_Lines }}"
+  when:
+    - junosSTIG_stigrule_80993_Manage
+# R-80999 JUSX-DM-000114
+- name : stigrule_80999_set_system_services_ssh_no_tcp_forwarding
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_80999_set_system_services_ssh_no_tcp_forwarding_Lines }}"
+  when:
+    - junosSTIG_stigrule_80999_Manage
+# R-81005 JUSX-DM-000128
+# Note: This setting only enforces the minimum character password length for newly created passwords
+- name : stigrule_81005_set_system_login_password_minimum_length_15
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81005_set_system_login_password_minimum_length_15_Lines }}"
+  when:
+    - junosSTIG_stigrule_81005_Manage
+# R-81007 JUSX-DM-000129
+- name : stigrule_81007_set_system_login_password_change_type_character_sets
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81007_set_system_login_password_change_type_character_sets_Lines }}"
+  when:
+    - junosSTIG_stigrule_81007_Manage
+# R-81009 JUSX-DM-000130
+- name : stigrule_81009_set_system_login_password_minimum_upper_cases_1
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81009_set_system_login_password_minimum_upper_cases_1_Lines }}"
+  when:
+    - junosSTIG_stigrule_81009_Manage
+# R-81011 JUSX-DM-000131
+- name : stigrule_81011_set_system_login_password_minimum_lower_cases_1
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81011_set_system_login_password_minimum_lower_cases_1_Lines }}"
+  when:
+    - junosSTIG_stigrule_81011_Manage
+# R-81013 JUSX-DM-000132
+- name : stigrule_81013_set_system_login_password_minimum_numerics_1
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81013_set_system_login_password_minimum_numerics_1_Lines }}"
+  when:
+    - junosSTIG_stigrule_81013_Manage
+# R-81015 JUSX-DM-000133
+- name : stigrule_81015_set_system_login_password_minimum_punctuations_1
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81015_set_system_login_password_minimum_punctuations_1_Lines }}"
+  when:
+    - junosSTIG_stigrule_81015_Manage
+# R-81017 JUSX-DM-000136
+- name : stigrule_81017_set_system_login_password_format_sha1
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81017_set_system_login_password_format_sha1_Lines }}"
+  when:
+    - junosSTIG_stigrule_81017_Manage
+# R-81019 JUSX-DM-000147
+- name : stigrule_81019_set_system_services_ssh_macs
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81019_set_system_services_ssh_macs_Lines }}"
+  when:
+    - junosSTIG_stigrule_81019_Manage
+# R-81021 JUSX-DM-000150
+# Sets ssh protocol-version v2 in 81019
+- name : stigrule_81021_set_system_services_ssh_ciphers
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81021_set_system_services_ssh_ciphers_Lines }}"
+  when:
+    - junosSTIG_stigrule_81021_Manage
+# R-81025 JUSX-DM-000153
+- name : stigrule_81025_set_system_services_ssh_client_alive
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81025_set_system_services_ssh_client_alive_Lines }}"
+  when:
+    - junosSTIG_stigrule_81025_Manage
+# R-81027 JUSX-DM-000156
+- name: get current configuration
+  junos_command:
+    commands:
+      - show configuration
+    display: xml
+  register: configuration
+  when:
+    - junosSTIG_stigrule_81027_Manage
+- name: dump output
+  debug:
+    var: configuration
+  when:
+    - junosSTIG_stigrule_81027_Manage
+- name : stigrule_81027_set_system_login_class
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81027_set_system_login_class_Lines }}"
+  loop: "{{ configuration['output'][0]['rpc-reply']['configuration']['system']['login']['class'] | default([]) }}"
+  when:
+    - junosSTIG_stigrule_81027_Manage
+# R-81027 JUSX-DM-000156
+- name : stigrule_81027_set_system_login_idle_timeout
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81027_set_system_login_idle_timeout_Lines }}"
+  when:
+    - junosSTIG_stigrule_81027_Manage
+# R-81031 JUSX-DM-000162
+- name : stigrule_81031_set_system_internet_options
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81031_set_system_internet_options_Lines }}"
+  when:
+    - junosSTIG_stigrule_81031_Manage
+# R-81033 JUSX-DM-000163
+- name : stigrule_81033_set_system_services_ssh_rate_limit_4
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81033_set_system_services_ssh_rate_limit_4_Lines }}"
+  when:
+    - junosSTIG_stigrule_81033_Manage
+# R-81039 JUSX-DM-000001
+# Set to organization-defined values
+- name : stigrule_81039_set_system_services_ssh_connection_limit
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81039_set_system_services_ssh_connection_limit_Lines }}"
+  when:
+    - junosSTIG_stigrule_81039_Manage
+# R-81043 JUSX-DM-000030
+- name : stigrule_81043_set_system_login_retry_options_tries_before_disconnect_3
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81043_set_system_login_retry_options_tries_before_disconnect_3_Lines }}"
+  when:
+    - junosSTIG_stigrule_81043_Manage
+# R-81045 JUSX-DM-000032
+# Disabled to prevent a bug in Ansible that prevents compliance extraction.
+- name : stigrule_81045_login
+  notify: "save configuration"
+  junos_banner:
+    banner: login
+    text: "{{ junosSTIG_stigrule_81045_login_Text }}"
+  when: junosSTIG_stigrule_81045_Manage
+# R-81047 JUSX-DM-000039
+- name : stigrule_81047_set_system_login_class_audit_admin_permissions
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81047_set_system_login_class_audit_admin_permissions_Lines }}"
+  when:
+    - junosSTIG_stigrule_81047_Manage
+# R-81047 JUSX-DM-000039
+- name : stigrule_81047_set_system_login_class_crypto_admin_permissions
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81047_set_system_login_class_crypto_admin_permissions_Lines }}"
+  when:
+    - junosSTIG_stigrule_81047_Manage
+# R-81047 JUSX-DM-000039
+- name : stigrule_81047_set_system_login_class_security_admin_permissions
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81047_set_system_login_class_security_admin_permissions_Lines }}"
+  when:
+    - junosSTIG_stigrule_81047_Manage
+# R-81047 JUSX-DM-000039
+- name : stigrule_81047_set_system_login_class_ids_admin_permissions
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81047_set_system_login_class_ids_admin_permissions_Lines }}"
+  when:
+    - junosSTIG_stigrule_81047_Manage
+# R-81047 JUSX-DM-000039
+- name : stigrule_81047_set_system_login_user_crypto_officer_class_crypto_admin
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81047_set_system_login_user_crypto_officer_class_crypto_admin_Lines }}"
+  when:
+    - junosSTIG_stigrule_81047_Manage
+# R-81049 JUSX-DM-000040
+# Please fill in the placeholder values for: <IP-syslog-server>, <MGT-IP-Address>, and <host-name>
+- name : stigrule_81049_generate_log_records
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81049_generate_log_records_Lines }}"
+  when:
+    - junosSTIG_stigrule_81049_Manage
+# R-81085 JUSX-DM-000087
+# Set to organization-defined values
+- name : stigrule_81085_set_system_max_configuration_rollbacks
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81085_set_system_max_configuration_rollbacks_Lines }}"
+  when:
+    - junosSTIG_stigrule_81085_Manage
+# R-81091 JUSX-DM-000154
+# Set to organization-defined values
+- name : stigrule_81091_system_ports_console_set_log_out_on_disconnect
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81091_system_ports_console_set_log_out_on_disconnect_Lines }}"
+  when:
+    - junosSTIG_stigrule_81091_Manage
+# R-81095 JUSX-DM-000167
+- name : stigrule_81095_delete_system_services_web_management
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81095_delete_system_services_web_management_Lines }}"
+  when:
+    - junosSTIG_stigrule_81095_Manage
+# R-81169 JUSX-VN-000031
+# Replace <name> before enabling.
+- name : stigrule_81169_delete_security_vpn__name__ike_no_anti_replay
+  notify: "save configuration"
+  junos_config:
+    lines: "{{ junosSTIG_stigrule_81169_delete_security_vpn__name__ike_no_anti_replay_Lines }}"
+  when:
+    - junosSTIG_stigrule_81169_Manage

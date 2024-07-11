@@ -1,0 +1,15 @@
+# Check ntp servers' IP address before replacing
+- name: Check/Replace existing NTP config for compliance
+  arista.eos.eos_ntp_global:
+    config: "{{ ntp_eos }}"
+    state: replaced
+  notify: NTP compliance violation
+  register: diff
+
+- ansible.builtin.debug:
+    msg:
+    - "current ntp config"
+    - "{{ diff.before }}"
+    - "replace commands (remediation)"
+    - "{{ diff.commands | default ('no diff found') }}"
+       

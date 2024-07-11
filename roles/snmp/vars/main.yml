@@ -1,0 +1,71 @@
+---
+# vars file for compliance
+# IOS-XE Compliance
+#SNMP    
+snmp_ios:
+  groups:
+  - group: V3GROUP
+    version: v3
+    version_option: auth
+    read: V3READ  
+    write: V3WRITE 
+  hosts:   
+  - community_string: V3USER
+    host: "1.1.1.1"
+    version: 3
+    version_option: auth
+  users:
+  - group: V3GROUP
+    username: V3USER
+    version: v3
+    authentication:
+      password: snmpauthpass
+      algorithm: sha
+    encryption:
+      password: snmpprevpass
+      priv: aes
+      priv_option: 256
+
+# Juniper Compliance              
+snmp_junos:
+  snmp_v3:
+    target_addresses:
+    - name: 1.1.1.1
+    usm: 
+     local_engine:
+       users:
+       - name: V3USER
+         authentication_sha:
+          key: snmpauthpass
+          password: snmpauthpass
+         privacy_aes128:
+          key: snmpprevpass
+          password: snmpprevpass
+
+
+# Arista Compliance
+snmp_eos:
+  groups:
+  - group: V3GROUP
+    version: v3
+    read: V3READ  
+    write: V3WRITE 
+    auth_privacy: auth
+  hosts:   
+  - user: V3USER
+    host: "1.1.1.1"
+    version: '3 auth'
+  traps:
+    snmp: 
+     authentication: true
+  users:
+  - auth:
+     algorithm: sha
+     auth_passphrase:  snmpauthpass
+    group: V3GROUP
+    localized: 
+     algorithm: sha
+     auth_passphrase:  snmpauthpass
+     encryption: aes   
+     priv_passphrase: snmpprevpass
+    user: V3USER

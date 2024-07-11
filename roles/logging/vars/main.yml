@@ -1,0 +1,52 @@
+---
+# vars file for compliance
+# IOS-XE Compliance
+#Logging
+logging_ios:
+  buffered:
+    severity: notifications
+    size: 12000
+  console:
+    severity: critical
+  facility: local5
+  hosts:
+  - hostname: 1.1.1.2
+  - hostname: 1.1.1.3
+  monitor:
+    severity: warnings
+  snmp_trap:
+  - errors
+  trap: errors
+  userinfo: True
+  logging_on: enable
+
+# Juniper Compliance    
+logging_junos:
+  hosts:
+  - name: '1.1.1.2'
+    any:
+      level: "warning"
+  - name: '1.1.1.3'
+    any:
+      level: "warning"
+  console:
+    any:
+      level: "critical"
+  
+# Arista Compliance
+logging_eos:
+  buffered:
+    severity: notifications
+    buffer_size: 12000
+  console:
+    severity: critical
+  facility: local5
+  hosts:
+  - name: 1.1.1.2
+  - name: 1.1.1.3
+  monitor:
+    severity: warnings
+  trap:
+   severity: "errors"
+  turn_on : true
+  
