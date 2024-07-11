@@ -1,5 +1,5 @@
 ---
-- name: Triage Down Interfaces 
+- name: Examine Incoming Configd For Compliance 
   hosts: "{{ _group }}"
   gather_facts: False
   tasks:
