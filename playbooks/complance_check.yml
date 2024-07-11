@@ -5,14 +5,15 @@
   tasks:
   - name: Print
     debug:
-     var: config 
+     msg: "{{ config | split ('/') | first | trim }}" 
+    register: config_out
 
   - name: Set tag for Compliance Check
     set_fact: 
-     tags: snmp
+     tags: config
     #when: "'snmp_server' in ['config']" 
     #when: config['snmp_server/Cisco_IOS_XE_snmp:community_config/name'] is defined
-    when: "config is match('^snmp.*$')"
+    when: config_out == 'snmp_server'
 
   - name: Print
     debug:
