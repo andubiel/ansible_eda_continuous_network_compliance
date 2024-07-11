@@ -12,7 +12,7 @@
       condition: events.body.name == "Cisco-IOS-XE-native:native"
       action:
         debug:
-          msg: Config Changed
+          msg: "Config Changed"
 
    # - name: Retrieve Data and Launch Job-template
    #   condition: events.body.fields.new_state == "interface-notif-state-down" and events.body.fields.if_name in vars.protected
