@@ -1,6 +1,6 @@
 ---
 - name: Triage Down Interfaces 
-  hosts: "{{ rtr }}"
+  hosts: "{{ _group }}"
   gather_facts: False
   tasks:
   - name: Print
