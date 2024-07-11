@@ -3,9 +3,10 @@
   hosts: "{{ _group }}"
   gather_facts: False
   tasks:
+  
   - name: Grab Current Time
     set_fact: current_time="{{ lookup('pipe','date +%Y-%m-%d\ %H:%M:%S') }}"
-    
+
   - name: set_fact when snmp in key
     ansible.builtin.set_fact:
       tag: snmp
@@ -26,7 +27,7 @@
 
   - name: Run Compliance Roles
     ansible.builtin.include_role:
-        name: "../roles/{{ tag }}"
+        name: "../roles/{{ tag | default (omit) }}"
 
   handlers:
     - name: NTP compliance violation
