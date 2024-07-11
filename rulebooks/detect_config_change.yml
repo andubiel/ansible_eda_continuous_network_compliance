@@ -4,7 +4,7 @@
   sources:
   - ansible.eda.kafka:
         topic: telegraf
-        host: localhost
+        host: ip-172-16-213-105.us-east-2.compute.internal
         port: 9092
         group_id:
   rules:
