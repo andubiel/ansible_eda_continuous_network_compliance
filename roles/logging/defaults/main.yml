@@ -19,7 +19,6 @@ logging_ios:
   trap: errors
   userinfo: True
  
-
 # Juniper Compliance    
 logging_junos:
   hosts:
