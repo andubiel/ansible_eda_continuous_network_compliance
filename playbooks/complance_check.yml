@@ -27,8 +27,8 @@
 
   - name: Run Compliance Roles
     ansible.builtin.include_role:
-        name: "{{ tag }}"
-        
+        name: "../roles/{{ tag }}"
+
   handlers:
     - name: NTP compliance violation
       ansible.builtin.debug:
