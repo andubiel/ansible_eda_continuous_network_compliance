@@ -7,3 +7,12 @@
     debug:
      msg: 
       - "{{ config }}"
+
+  - name: Set tag for Compliance Check
+    set_fact: tags=snmp
+    when: snmp_server in ['config'] 
+
+  - name: Print
+    debug:
+     msg: 
+      - "{{ tags }}"
