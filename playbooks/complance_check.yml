@@ -5,13 +5,14 @@
   tasks:
   - name: Print
     debug:
-     msg: "{{ config }}"
+     var: config 
 
   - name: Set tag for Compliance Check
     set_fact: 
      tags: snmp
-    when: "'snmp_server' in ['config']" 
+    #when: "'snmp_server' in ['config']" 
     #when: config['snmp_server/Cisco_IOS_XE_snmp:community_config/name'] is defined
+    when: config | match("snmp_server")
 
   - name: Print
     debug:
