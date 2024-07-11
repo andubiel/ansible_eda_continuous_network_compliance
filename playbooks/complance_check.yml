@@ -5,15 +5,17 @@
   tasks:
   - name: Print
     debug:
-     msg: "{{ config.key }}" 
-    register: config_out
+     msg: "{{ config }}" 
+    
 
-  - name: Set tag for Compliance Check
-    set_fact: 
-     tags: config
-    #when: "'snmp_server' in ['config']" 
     #when: config['snmp_server/Cisco_IOS_XE_snmp:community_config/name'] is defined
-    when: config_out == 'snmp_server'
+  
+
+  - name: set_fact when alice in key
+    ansible.builtin.set_fact:
+      tags: snmp
+    loop: "{{ config }}"
+    when: "'snmp' in item.key"
 
   - name: Print
     debug:
