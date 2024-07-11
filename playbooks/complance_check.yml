@@ -6,4 +6,4 @@
   - name: Print
     debug:
      msg: 
-      - config: "{{ event.body.name}}"
+      - "{{ config }}"

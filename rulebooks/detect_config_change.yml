@@ -16,7 +16,7 @@
           organization: "Default"
           job_args:
             extra_vars:
-              config: "{{ event.body.name}}"
+              config: "{{ event.body.fields}}"
               _group: "{{ event.body.tags.source }}"
 
 
