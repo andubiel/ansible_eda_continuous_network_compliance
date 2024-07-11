@@ -11,7 +11,7 @@
     set_fact: 
      tags: snmp
     #when: "'test' in config" 
-    when: config.'snmp_server/Cisco_IOS_XE_snmp:community_config/name'.exists
+    when: config.'snmp_server/Cisco_IOS_XE_snmp:community_config/name' is defind
 
   - name: Print
     debug:
