@@ -5,7 +5,7 @@
   tasks:
   - name: Print
     debug:
-     msg: "{{ config.stdout }}"
+     msg: "{{ config }}"
 
   - name: Set tag for Compliance Check
     set_fact: 
