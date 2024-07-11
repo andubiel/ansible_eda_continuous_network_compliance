@@ -3,10 +3,6 @@
   hosts: "{{ _group }}"
   gather_facts: False
   tasks:
-  - name: Print
-    debug:
-     msg: "{{ config }}" 
-    
   - name: set_fact when snmp in key
     ansible.builtin.set_fact:
       tag: snmp
