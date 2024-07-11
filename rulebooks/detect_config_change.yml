@@ -9,7 +9,7 @@
         group_id:
   rules:
     - name: When Config Drifts Run Playbook
-      condition: events.body.name == "Cisco-IOS-XE-native:native"
+      condition: event.body.name == "Cisco-IOS-XE-native:native"
       action:
         debug:
           msg: "Config Changed"
