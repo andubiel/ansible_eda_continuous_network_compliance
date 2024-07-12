@@ -3,7 +3,7 @@
   cisco.ios.ios_logging_global:
     config: "{{ logging_ios }}"   
     state: replaced
-  notify: NTP compliance violation
+  notify: Logging compliance violation
   register: logging_diff
 
 - ansible.builtin.debug:
@@ -27,7 +27,7 @@
     short_description: "{{inventory_hostname}} was out of compliance for {{ tag }}"
   register: snow_var
   delegate_to: localhost
-  when: ntp_diff.changed
+  when: logging_diff.changed
 
 - name: Resolve ticket
   servicenow.itsm.incident:
