@@ -8,22 +8,3 @@ ntp_ios:
     version: 2
   - server: 192.0.2.1
     version: 2
-
-# Junos Compliance    
-ntp_junos:
-  servers:
-  - server: "192.0.2.0"
-    prefer: true
-    version: 2
-  - server: "192.0.2.1"
-    prefer: true
-    version: 2
-
-# Arista Compliance
-ntp_eos:
-  servers:
-  - server: "192.0.2.0"
-    prefer: True
-  - server: "192.0.2.1"
-    prefer: True
-    
