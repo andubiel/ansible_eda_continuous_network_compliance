@@ -13,7 +13,7 @@
     - "replace commands (remediation)"
     - "{{ logging_diff.commands | default ('no diff found') }}"
 
-- name: Create SNOW ticket for {{ inventory_hostname }} {{ interface }}
+- name: ' Create SNOW ticket for {{ inventory_hostname }} {{ interface }}'
   servicenow.itsm.incident:
     instance:
       host: "{{ SN_HOST }}"
@@ -38,7 +38,7 @@
     number: "{{ snow_var.record.number }}"
     state: resolved
     close_code: "Solved (Permanently)"
-    close_notes: "Problem appears fixed! ##### Config Replaced: {{ loging_diff.commands }}"
+    close_notes: "Problem appears fixed! ##### Config Replaced: {{ logging_diff.commands }}"
     short_description: "{{inventory_hostname}} has been remdiated for {{ tag }}"
   delegate_to: localhost
   when: logging_diff.changed
