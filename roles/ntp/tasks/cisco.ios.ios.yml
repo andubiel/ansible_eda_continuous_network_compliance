@@ -34,7 +34,7 @@
       host: "{{ SN_HOST }}"
       username: "{{ SN_USERNAME }}"
       password: "{{ SN_PASSWORD }}"
-    number: "{{ incident_num }}"
+    number: "{{ snow_var.record.number }}"
     state: resolved
     close_code: "Solved (Permanently)"
     close_notes: "Problem appears fixed! ##### Config Replaced: {{ ntp_diff }}"
@@ -51,7 +51,7 @@
     close_code: "Solved (Permanently)"
     close_notes: "The incident is closed"
     state: closed
-    number: "{{ incident_num }}"
+    number: "{{ snow_var.record.number }}"
     short_description: "{{inventory_hostname}} is now compliant"
   delegate_to: localhost
   when: ntp_diff.changed
