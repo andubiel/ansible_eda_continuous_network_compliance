@@ -1,10 +1,4 @@
 ---
-- name: Not Enforced by the Compliance Policy 
-  hosts: "{{ _group }}"
-  gather_facts: False
-
-  tasks:
-
-  - name: Print configuration changes not Enforced
-    ansible.builtin.debug:
-     msg: 'These Changes on {{ _group }} were made at {{ current_time }} but not enforced {{ config }}'
+- name: Print configuration changes not Enforced
+  ansible.builtin.debug:
+    msg: 'These Changes on {{ _group }} were made at {{ current_time }} but not enforced {{ config }}'
