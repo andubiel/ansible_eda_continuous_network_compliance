@@ -157,16 +157,6 @@
     - iosxeSTIG_stigrule_215823_Manage
 
 # R-215823 CISC-ND-000470
-- name: stigrule_215823_disable_identd
-  ignore_errors: "{{ ignore_all_errors }}"
-  notify: "save configuration"
-  ios_config:
-    defaults: yes
-    lines: "{{ iosxeSTIG_stigrule_215823_disable_identd_Lines }}"
-  when:
-    - iosxeSTIG_stigrule_215823_Manage
-
-# R-215823 CISC-ND-000470
 - name: stigrule_215823_disable_finger
   ignore_errors: "{{ ignore_all_errors }}"
   notify: "save configuration"
