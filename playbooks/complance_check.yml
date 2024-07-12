@@ -27,7 +27,7 @@
 
   - name: set_fact when stig in key
     ansible.builtin.set_fact:
-      tag: ios-stig
+      tag: stig-ios
     loop: "{{ config | ansible.builtin.dict2items }}"
     when: "'service' in item.key or 'ip' in item.key"
     
