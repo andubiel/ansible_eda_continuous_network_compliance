@@ -2,7 +2,7 @@
 # DISA STIG EXAMPLES FROM https://public.cyber.mil/stigs/downloads/
 
 # R-215823 CISC-ND-000470
-iosxeSTIG_stigrule_215823_Manage: False
+iosxeSTIG_stigrule_215823_Manage: True
 
 iosxeSTIG_stigrule_215823_disable_bootp_server_Lines:
   - no ip bootp server
