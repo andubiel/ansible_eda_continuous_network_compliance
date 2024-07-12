@@ -2,8 +2,12 @@
 - name: Examine Configuration Changes For Compliance 
   hosts: "{{ _group }}"
   gather_facts: False
+  vars: 
+   save: no 
+   ignore_all_errors: false
+
   tasks:
-  
+
   - name: Grab Current Time
     set_fact: current_time="{{ lookup('pipe','date +%Y-%m-%d\ %H:%M:%S') }}"
 
