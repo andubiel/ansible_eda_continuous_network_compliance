@@ -1,12 +1,42 @@
 ---
-# DISA IOS STIG EXAMPLES FROM https://public.cyber.mil/stigs/downloads/
+# DISA STIG EXAMPLES FROM https://public.cyber.mil/stigs/downloads/
 
-# R-215817 CISC-ND-000280
-iosxeSTIG_stigrule_215817_Manage: True
-iosxeSTIG_stigrule_215817_service_timestamps_log_datetime_localtime_Lines:
-  - service timestamps log datetime localtime
+# R-215823 CISC-ND-000470
+iosxeSTIG_stigrule_215823_Manage: False
 
-####################Disabled Below#################################
+iosxeSTIG_stigrule_215823_disable_bootp_server_Lines:
+  - no ip bootp server
+iosxeSTIG_stigrule_215823_disable_http_server_Lines:
+  - no ip http server
+iosxeSTIG_stigrule_215823_disable_service_pad_Lines:
+  - no service pad
+#### 
+iosxeSTIG_stigrule_215823_disable_boot_network_Lines:
+  - no boot network
+iosxeSTIG_stigrule_215823_disable_boot_server_Lines:
+  - no ip boot server
+iosxeSTIG_stigrule_215823_disable_dns_server_Lines:
+  - no ip dns server
+iosxeSTIG_stigrule_215823_disable_identd_Lines:
+  - no ip identd
+iosxeSTIG_stigrule_215823_disable_finger_Lines:
+  - no ip finger
+iosxeSTIG_stigrule_215823_disable_rcmd_rcp_enable_Lines:
+  - no ip rcmd rcp-enable
+iosxeSTIG_stigrule_215823_disable_rcmd_rsh_enable_Lines:
+  - no ip rcmd rsh-enable
+iosxeSTIG_stigrule_215823_disable_tcp_small_servers_Lines:
+  - no service tcp-small-servers
+iosxeSTIG_stigrule_215823_disable_udp_small_servers_Lines:
+  - no service udp-small-servers
+iosxeSTIG_stigrule_215823_disable_service_finger_Lines:
+  - no service finger
+iosxeSTIG_stigrule_215823_disable_service_config_Lines:
+  - no service config
+
+##########Disabled Below#################################
+
+
 # R-215807 CISC-ND-000010
 iosxeSTIG_stigrule_215807_Manage: False
 iosxeSTIG_stigrule_215807_ip_http_max_connections_2_Lines:
@@ -63,7 +93,7 @@ iosxeSTIG_stigrule_215816_login_logging_Lines:
   - login on-failure log
   - login on-success log
 # R-215817 CISC-ND-000280
-iosxeSTIG_stigrule_215817_Manage: True
+iosxeSTIG_stigrule_215817_Manage: False
 iosxeSTIG_stigrule_215817_service_timestamps_log_datetime_localtime_Lines:
   - service timestamps log datetime localtime
 # R-215819 CISC-ND-000330
@@ -79,36 +109,7 @@ iosxeSTIG_stigrule_215820_file_privilege_Lines:
 # R-215822 CISC-ND-000460
 # A duplicate of 215820
 # duplicate of 215820
-# R-215823 CISC-ND-000470
-iosxeSTIG_stigrule_215823_Manage: False
-iosxeSTIG_stigrule_215823_disable_boot_network_Lines:
-  - no boot network
-iosxeSTIG_stigrule_215823_disable_boot_server_Lines:
-  - no ip boot server
-iosxeSTIG_stigrule_215823_disable_bootp_server_Lines:
-  - no ip bootp server
-iosxeSTIG_stigrule_215823_disable_dns_server_Lines:
-  - no ip dns server
-iosxeSTIG_stigrule_215823_disable_identd_Lines:
-  - no ip identd
-iosxeSTIG_stigrule_215823_disable_finger_Lines:
-  - no ip finger
-iosxeSTIG_stigrule_215823_disable_http_server_Lines:
-  - no ip http server
-iosxeSTIG_stigrule_215823_disable_rcmd_rcp_enable_Lines:
-  - no ip rcmd rcp-enable
-iosxeSTIG_stigrule_215823_disable_rcmd_rsh_enable_Lines:
-  - no ip rcmd rsh-enable
-iosxeSTIG_stigrule_215823_disable_tcp_small_servers_Lines:
-  - no service tcp-small-servers
-iosxeSTIG_stigrule_215823_disable_udp_small_servers_Lines:
-  - no service udp-small-servers
-iosxeSTIG_stigrule_215823_disable_service_finger_Lines:
-  - no service finger
-iosxeSTIG_stigrule_215823_disable_service_config_Lines:
-  - no service config
-iosxeSTIG_stigrule_215823_disable_service_pad_Lines:
-  - no service pad
+
 # R-215825 CISC-ND-000530
 # ip ssh server algorithm encryption is set in 215845.
 iosxeSTIG_stigrule_215825_Manage: False
