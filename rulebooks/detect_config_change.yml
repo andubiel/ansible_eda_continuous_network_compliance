@@ -8,7 +8,7 @@
         port: 9092
         group_id:
   rules:
-    - name: When Config Drifts Run Playbook
+    - name: When a Compliance Controlled Config Changes - Run Playbook
       condition: event.body.name == "Cisco-IOS-XE-native:native"
       action:
         run_job_template:
