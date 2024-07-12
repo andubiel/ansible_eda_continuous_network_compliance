@@ -1,4 +1,4 @@
 ---
 - name: Print configuration changes not Enforced
   ansible.builtin.debug:
-    msg: 'These Changes on {{ _group }} were made at {{ current_time }} but not enforced {{ config }}'
+    msg: 'These Changes on {{ _group }} were made at {{ current_time }} but not enforced as part of a compliance rule {{ config }}'
