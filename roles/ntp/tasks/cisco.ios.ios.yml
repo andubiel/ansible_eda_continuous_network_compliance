@@ -22,7 +22,7 @@
     state: new
     impact: high
     urgency: high
-    caller: System Administrator
+    caller: admin
     description: "{{inventory_hostname}} configuration changed at {{ current_time }}######## The current {{ tag }} configuration ###### {{ config }} ##### was remediated for compliance"
     short_description: "{{inventory_hostname}} was out of compliance for {{ tag }}"
   register: snow_var
