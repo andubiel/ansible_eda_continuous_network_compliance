@@ -13,7 +13,7 @@
     - "replace commands (remediation)"
     - "{{ snmp_diff.commands | default ('no diff found') }}"
 
-- name: Create SNOW ticket for {{ inventory_hostname }} {{ interface }}
+- name: Create SNOW ticket 
   servicenow.itsm.incident:
     instance:
       host: "{{ SN_HOST }}"
@@ -55,7 +55,7 @@
     number: "{{ snow_var.record.number }}"
     short_description: "{{inventory_hostname}} is now compliant"
   delegate_to: localhost
-  when: ntp_diff.changed
+  when: snmp_diff.changed
 
 - name: Show incident number
   ansible.builtin.debug:
