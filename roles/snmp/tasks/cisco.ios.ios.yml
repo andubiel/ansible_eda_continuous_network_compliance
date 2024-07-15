@@ -38,7 +38,7 @@
     number: "{{ snow_var.record.number }}"
     state: resolved
     close_code: "Solved (Permanently)"
-    close_notes: "Problem appears fixed! ##### Config Replaced: {{ ntp_diff.commands }}"
+    close_notes: "Problem appears fixed! ##### Config Replaced: {{ snmp_diff.commands }}"
     short_description: "{{inventory_hostname}} has been remdiated for {{ tag }}"
   delegate_to: localhost
   when: snmp_diff.changed
