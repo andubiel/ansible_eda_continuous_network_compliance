@@ -706,7 +706,7 @@
     close_notes: "Problem appears fixed! ##### Config Replaced: {{ response }}"
     short_description: "{{inventory_hostname}} has been remdiated for {{ tag }}"
   delegate_to: localhost
-  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed == true or iosxeSTIG_stigrule_215823_disable_http_server.changed == true or iosxeSTIG_stigrule_215823_disable_service_pad.changed == true
 
 - name: Close ticket
   servicenow.itsm.incident:
