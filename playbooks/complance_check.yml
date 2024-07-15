@@ -17,7 +17,7 @@
     loop: "{{ config | ansible.builtin.dict2items }}"
     when: "'snmp' in item.key"
 
-  - name: set_fact when log in key
+  - name: set_fact when logging in key
     ansible.builtin.set_fact:
       tag: logging
     loop: "{{ config | ansible.builtin.dict2items }}"
@@ -33,7 +33,7 @@
     ansible.builtin.set_fact:
       tag: stig-ios
     loop: "{{ config | ansible.builtin.dict2items }}"
-    when: "'service' in item.key or 'ip' in item.key"
+    when: "'ip/Cisco_IOS_XE_http:http/server' in item.key or 'service/pad_conf/pad' or 'ip/bootp/server` in item.key"
     
   - name: Run Role for other 
     ansible.builtin.include_role:
