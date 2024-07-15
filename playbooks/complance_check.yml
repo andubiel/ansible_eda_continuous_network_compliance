@@ -33,8 +33,8 @@
     ansible.builtin.set_fact:
       tag: stig-ios
     loop: "{{ config | ansible.builtin.dict2items }}"
-    when: "'ip/Cisco_IOS_XE_http:http/server' in item.key or 'service/pad_conf/pad' in item.key  or 'ip/bootp/server` in item.key"
-    
+    #when: "'ip/Cisco_IOS_XE_http:http/server' in item.key or 'service/pad_conf/pad' in item.key  or 'ip/bootp/server` in item.key"
+    when: "'ip/Cisco_IOS_XE_http:http/server' in item.key"
   - name: Run Role for other 
     ansible.builtin.include_role:
         name: "../roles/{{ tag | default ('other') }}"
