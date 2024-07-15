@@ -676,7 +676,7 @@
     - iosxeSTIG_stigrule_217001_Manage
     
 ####Service Now Ticket
-- name: Create SNOW ticket for {{ inventory_hostname }} {{ interface }}
+- name: Create SNOW ticket 
   servicenow.itsm.incident:
     instance:
       host: "{{ SN_HOST }}"
