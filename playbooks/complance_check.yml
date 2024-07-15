@@ -35,7 +35,7 @@
     loop: "{{ config | ansible.builtin.dict2items }}"
     when: "'ntp' in item.key"
 
-  - name: Run Role for other 
+  - name: Run Role for Compliance 
     ansible.builtin.include_role:
         name: "../roles/{{ tag | default ('other') }}"
 
