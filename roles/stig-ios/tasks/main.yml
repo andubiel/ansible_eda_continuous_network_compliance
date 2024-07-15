@@ -99,6 +99,39 @@
     - iosxeSTIG_stigrule_215820_Manage
 
 # R-215823 CISC-ND-000470
+- name: stigrule_215823_disable_bootp_server
+  ignore_errors: "{{ ignore_all_errors }}"
+  notify: "save configuration"
+  ios_config:
+    defaults: yes
+    lines: "{{ iosxeSTIG_stigrule_215823_disable_bootp_server_Lines }}"
+  when:
+    - iosxeSTIG_stigrule_215823_Manage
+  register: iosxeSTIG_stigrule_215823_disable_bootp_server
+
+# R-215823 CISC-ND-000470
+- name: stigrule_215823_disable_http_server
+  ignore_errors: "{{ ignore_all_errors }}"
+  notify: "save configuration"
+  ios_config:
+    defaults: yes
+    lines: "{{ iosxeSTIG_stigrule_215823_disable_http_server_Lines }}"
+  when:
+    - iosxeSTIG_stigrule_215823_Manage
+  register: iosxeSTIG_stigrule_215823_disable_http_server
+
+# R-215823 CISC-ND-000470
+- name: stigrule_215823_disable_service_pad
+  ignore_errors: "{{ ignore_all_errors }}"
+  notify: "save configuration"
+  ios_config:
+    defaults: yes
+    lines: "{{ iosxeSTIG_stigrule_215823_disable_service_pad_Lines }}"
+  when:
+    - iosxeSTIG_stigrule_215823_Manage
+  register: iosxeSTIG_stigrule_215823_disable_service_pad
+
+# R-215823 CISC-ND-000470
 - name: check for boot network
   ios_command:
     commands: show running-config all | include ^boot network
@@ -113,7 +146,6 @@
   when:
     - (cmd_result.stdout|join('\n')).find('boot network') != -1
     - iosxeSTIG_stigrule_215823_Manage
-  register: stig
 
 # R-215823 CISC-ND-000470
 - name: check for ip boot server
@@ -129,17 +161,6 @@
     lines: "{{ iosxeSTIG_stigrule_215823_disable_boot_server_Lines }}"
   when:
     - (cmd_result.stdout|join('\n')).find('ip boot server') != -1
-    - iosxeSTIG_stigrule_215823_Manage
-  register: stig
-
-# R-215823 CISC-ND-000470
-- name: stigrule_215823_disable_bootp_server
-  ignore_errors: "{{ ignore_all_errors }}"
-  notify: "save configuration"
-  ios_config:
-    defaults: yes
-    lines: "{{ iosxeSTIG_stigrule_215823_disable_bootp_server_Lines }}"
-  when:
     - iosxeSTIG_stigrule_215823_Manage
 
 # R-215823 CISC-ND-000470
@@ -167,18 +188,6 @@
     lines: "{{ iosxeSTIG_stigrule_215823_disable_finger_Lines }}"
   when:
     - iosxeSTIG_stigrule_215823_Manage
-  register: stig
-
-# R-215823 CISC-ND-000470
-- name: stigrule_215823_disable_http_server
-  ignore_errors: "{{ ignore_all_errors }}"
-  notify: "save configuration"
-  ios_config:
-    defaults: yes
-    lines: "{{ iosxeSTIG_stigrule_215823_disable_http_server_Lines }}"
-  when:
-    - iosxeSTIG_stigrule_215823_Manage
-  register: stig
 
 # R-215823 CISC-ND-000470
 - name: check for ip rcmd rcp-enable
@@ -194,8 +203,7 @@
     lines: "{{ iosxeSTIG_stigrule_215823_disable_rcmd_rcp_enable_Lines }}"
   when:
     - (cmd_result.stdout|join('\n')).find('ip rcmd rcp-enable') != -1
-    - iosxeSTIG_stigrule_215823_Manage
-  register: stig
+    - iosxeSTIG_stigrule_215823_Manage 
 
 # R-215823 CISC-ND-000470
 - name: check for ip rcmd rsh-enable
@@ -212,7 +220,6 @@
   when:
     - (cmd_result.stdout|join('\n')).find('ip rcmd rsh-enable') != -1
     - iosxeSTIG_stigrule_215823_Manage
-  register: stig
 
 # R-215823 CISC-ND-000470
 - name: check for tcp-small-servers
@@ -229,7 +236,6 @@
   when:
     - (cmd_result.stdout|join('\n')).find('service tcp-small-servers') != -1
     - iosxeSTIG_stigrule_215823_Manage
-  register: stig
 
 # R-215823 CISC-ND-000470
 - name: check for udp-small-servers
@@ -246,7 +252,6 @@
   when:
     - (cmd_result.stdout|join('\n')).find('service udp-small-servers') != -1
     - iosxeSTIG_stigrule_215823_Manage
-  register: stig
 
 # R-215823 CISC-ND-000470
 - name: check for service finger
@@ -263,7 +268,6 @@
   when:
     - (cmd_result.stdout|join('\n')).find('service finger') != -1
     - iosxeSTIG_stigrule_215823_Manage
-  register: stig
 
 # R-215823 CISC-ND-000470
 - name: stigrule_215823_disable_service_config
@@ -274,18 +278,6 @@
     lines: "{{ iosxeSTIG_stigrule_215823_disable_service_config_Lines }}"
   when:
     - iosxeSTIG_stigrule_215823_Manage
-  register: stig
-
-# R-215823 CISC-ND-000470
-- name: stigrule_215823_disable_service_pad
-  ignore_errors: "{{ ignore_all_errors }}"
-  notify: "save configuration"
-  ios_config:
-    defaults: yes
-    lines: "{{ iosxeSTIG_stigrule_215823_disable_service_pad_Lines }}"
-  when:
-    - iosxeSTIG_stigrule_215823_Manage
-  register: stig
 
 # R-215825 CISC-ND-000530
 # ip ssh server algorithm encryption is set in 215845.
@@ -669,7 +661,7 @@
     lines: "{{ iosxeSTIG_stigrule_217001_ip_options_drop_Lines }}"
   when:
     - iosxeSTIG_stigrule_217001_Manage
-
+####Service Now Ticket
 - name: Create SNOW ticket for {{ inventory_hostname }} {{ interface }}
   servicenow.itsm.incident:
     instance:
@@ -684,7 +676,7 @@
     short_description: "{{inventory_hostname}} was out of compliance for {{ tag }}"
   register: snow_var
   delegate_to: localhost
-  when: stig.changed
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
 
 - name: Resolve ticket
   servicenow.itsm.incident:
@@ -698,7 +690,7 @@
     close_notes: "Problem appears fixed! ##### Config Replaced: {{ ntp_diff.commands }}"
     short_description: "{{inventory_hostname}} has been remdiated for {{ tag }}"
   delegate_to: localhost
-  when: stig.changed
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
 
 - name: Close ticket
   servicenow.itsm.incident:
@@ -712,15 +704,14 @@
     number: "{{ snow_var.record.number }}"
     short_description: "{{inventory_hostname}} is now compliant"
   delegate_to: localhost
-  when: stig.changed
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
 
 - name: Show incident number
   ansible.builtin.debug:
     msg:
       - "{{ SN_HOST }}"
       - "{{ snow_var.record.number }}"
-  when: stig.changed
-
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
 
 
 
