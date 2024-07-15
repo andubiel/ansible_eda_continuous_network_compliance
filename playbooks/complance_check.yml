@@ -35,7 +35,7 @@
     loop: "{{ config | ansible.builtin.dict2items }}"
     when: "'service' in item.key or 'ip' in item.key"
     
-  - name: Run Compliance Roles
+  - name: Run Role for other 
     ansible.builtin.include_role:
         name: "../roles/{{ tag | default ('other') }}"
 
