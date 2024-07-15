@@ -687,6 +687,10 @@
   register: snow_var
   delegate_to: localhost
   when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
+- debug:
+    msg: "{{ response }}"
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
+
 
 - name: Resolve ticket
   servicenow.itsm.incident:
