@@ -670,7 +670,7 @@
     lines: "{{ iosxeSTIG_stigrule_217001_ip_options_drop_Lines }}"
   when:
     - iosxeSTIG_stigrule_217001_Manage
-
+    
 ####Service Now Ticket
 - name: Create SNOW ticket for {{ inventory_hostname }} {{ interface }}
   servicenow.itsm.incident:
@@ -686,7 +686,7 @@
     short_description: "{{inventory_hostname}} was out of compliance for {{ tag }}"
   register: snow_var
   delegate_to: localhost
-  when: response.changed
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
 
 - name: Resolve ticket
   servicenow.itsm.incident:
@@ -697,10 +697,10 @@
     number: "{{ snow_var.record.number }}"
     state: resolved
     close_code: "Solved (Permanently)"
-    close_notes: "Problem appears fixed! ##### Config Replaced: {{ ntp_diff.commands }}"
+    close_notes: "Problem appears fixed! ##### Config Replaced: {{ response.commands }}"
     short_description: "{{inventory_hostname}} has been remdiated for {{ tag }}"
   delegate_to: localhost
-  when: response.changed
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
 
 - name: Close ticket
   servicenow.itsm.incident:
@@ -714,14 +714,14 @@
     number: "{{ snow_var.record.number }}"
     short_description: "{{inventory_hostname}} is now compliant"
   delegate_to: localhost
-  when: response.changed
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
 
 - name: Show incident number
   ansible.builtin.debug:
     msg:
       - "{{ SN_HOST }}"
       - "{{ snow_var.record.number }}"
-  when: response.changed
+  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
 
 
 
