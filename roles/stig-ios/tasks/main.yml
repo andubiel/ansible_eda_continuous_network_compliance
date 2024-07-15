@@ -135,10 +135,9 @@
   set_fact: 
    response: "{{ item | default (omit, True)}}"
   loop: 
-   - iosxeSTIG_stigrule_215823_disable_bootp_server
-   - iosxeSTIG_stigrule_215823_disable_http_server
-   - iosxeSTIG_stigrule_215823_disable_service_pad
-
+   - "{{ iosxeSTIG_stigrule_215823_disable_bootp_server }}"
+   - "{{ iosxeSTIG_stigrule_215823_disable_http_server }}"
+   - "{{ iosxeSTIG_stigrule_215823_disable_service_pad }}"
 
 # R-215823 CISC-ND-000470
 - name: check for boot network
