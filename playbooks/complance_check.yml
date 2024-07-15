@@ -35,6 +35,17 @@
     loop: "{{ config | ansible.builtin.dict2items }}"
     when: "'ntp' in item.key"
 
+  - name: set_fact when ntp in other
+    ansible.builtin.set_fact:
+      tag: other
+    loop: "{{ config | ansible.builtin.dict2items }}"
+    when: 
+    - "'ntp' not in item.key"
+    - "'logging' not in item.key"
+    - "'snmp' not in item.key"
+    - "'ip/Cisco_IOS_XE_http:http/server' or 'service/pad_conf/pad' or 'ip/bootp/server' in item.key"
+
+
   - name: Run Role for Compliance 
     ansible.builtin.include_role:
         name: "../roles/{{ tag }}"
