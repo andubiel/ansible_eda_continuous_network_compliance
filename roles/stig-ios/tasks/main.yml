@@ -690,10 +690,12 @@
     short_description: "{{inventory_hostname}} was out of compliance for {{ tag }}"
   register: snow_var
   delegate_to: localhost
-  when: iosxeSTIG_stigrule_215823_disable_bootp_server.changed or iosxeSTIG_stigrule_215823_disable_http_server.changed or iosxeSTIG_stigrule_215823_disable_service_pad
+  when: response.value == true
+
 - debug:
     msg: "{{ response }}"
-  when: iosxeSTIG_stigrule_215823_disable_bootp_server.value == true or iosxeSTIG_stigrule_215823_disable_http_server.value == true or iosxeSTIG_stigrule_215823_disable_service_pad == true
+  when: response.value == true 
+
 - name: Resolve ticket
   servicenow.itsm.incident:
     instance:
@@ -706,7 +708,7 @@
     close_notes: "Problem appears fixed! ##### Config Replaced: {{ response }}"
     short_description: "{{inventory_hostname}} has been remdiated for {{ tag }}"
   delegate_to: localhost
-  when: iosxeSTIG_stigrule_215823_disable_bootp_server.value == true or iosxeSTIG_stigrule_215823_disable_http_server.value == true or iosxeSTIG_stigrule_215823_disable_service_pad == true
+  when: response.value == true 
 
 - name: Close ticket
   servicenow.itsm.incident:
@@ -720,14 +722,14 @@
     number: "{{ snow_var.record.number }}"
     short_description: "{{inventory_hostname}} is now compliant"
   delegate_to: localhost
-  when: iosxeSTIG_stigrule_215823_disable_bootp_server.value == true or iosxeSTIG_stigrule_215823_disable_http_server.value == true or iosxeSTIG_stigrule_215823_disable_service_pad == true
+  when: response.value == true 
 
 - name: Show incident number
   ansible.builtin.debug:
     msg:
       - "{{ SN_HOST }}"
       - "{{ snow_var.record.number }}"
-  when: iosxeSTIG_stigrule_215823_disable_bootp_server.value == true or iosxeSTIG_stigrule_215823_disable_http_server.value == true or iosxeSTIG_stigrule_215823_disable_service_pad == true
+  when: response.value == true 
 
 
 
